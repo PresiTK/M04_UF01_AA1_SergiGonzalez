@@ -262,7 +262,6 @@ function actualiza ()
 
 }
 
-
 countdown_interval = setInterval(function(){
 	countdown--;
 
@@ -274,6 +273,31 @@ countdown_interval = setInterval(function(){
 		music.game_over.play();
 
 		clearInterval(countdown_interval);
+
+
+		let game_over_text = game.scene.scenes[0].add.text(canvas_w / 2, canvas_h / 2 - 40,
+			"GAME OVER", {
+				fontSize: "64px",
+				fontStyle: "bold",
+				color: "#ff0000"
+			}
+		).setOrigin(0.5);
+
+		let final_score = 0;
+
+		let score_text = game.scene.scenes[0].add.text(canvas_w / 2, canvas_h / 2 + 40,
+			"Puntuación: " + final_score, {
+				fontSize: "32px",
+				color: "#ffffff"
+			}
+		).setOrigin(0.5);
+
+		for (let i = 0; i < huevos.length; i++) {
+			huevos[i].falling = false;
+			huevos[i].disableInteractive();
+		}
+
+		clearTimeout(huevos_interval);
 	}
 }, 1000);
 

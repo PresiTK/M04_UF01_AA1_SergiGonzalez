@@ -97,3 +97,7 @@ button:disabled {
         margin: 10px 0;
     }
 }
+#game-container {
+    width: 800px;
+    height: 600px;
+}
