@@ -1,7 +1,11 @@
 <!DOCTYPE html>
+<html lang="es">
 <head>
-    <title>Mi Página Web</title>
+    <meta charset="UTF-8">
+    <title>Hueveras de cartón 2</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.87.0/phaser.min.js"></script>
+    <script src="hueveras.js" defer></script>
 </head>
 <body>
     <header>
@@ -12,18 +16,17 @@
                 <li><a href="aficiones.html">Aficiones</a></li>
                 <li><a href="juego.html">Juego</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
-				<li><a href="hueveras.html">Hueveras</a></li>
+                <li><a href="hueveras.html">Hueveras</a></li>
             </ul>
         </nav>
     </header>
-    <main>
-       	<meta charset="UTF-8" />
-		<title>Hueveras de cartón 2</title>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.87.0/phaser.min.js"></script>
 
-		<script src="hueveras.js"></script>
+    <main>
+        <div id="game-container"></div>
     </main>
+
+    <footer>
+        <p><a href="contacto.html">Contacto</a></p>
+    </footer>
 </body>
-<footer>
-    <a href="contacto.html"><p>Contacto</p></a>
-</footer>
+</html>
