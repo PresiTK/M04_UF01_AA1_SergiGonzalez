@@ -1,3 +1,4 @@
+let escena;
 let canvas_w = 800;
 let canvas_h = 450;
 
@@ -78,6 +79,7 @@ function precarga ()
 
 function crea ()
 {
+	escena = this;
 	let blanco = Phaser.Display.Color.GetColor(255, 255, 255);
 	let marron = Phaser.Display.Color.GetColor(192, 128, 16);
 	let dorado = Phaser.Display.Color.GetColor(255, 215, 0);
@@ -275,7 +277,7 @@ countdown_interval = setInterval(function(){
 		clearInterval(countdown_interval);
 
 
-		let game_over_text = game.scene.scenes[0].add.text(canvas_w / 2, canvas_h / 2 - 40,
+		let game_over_text = escena.add.text(canvas_w / 2, canvas_h / 2 - 40,
 			"GAME OVER", {
 				fontSize: "64px",
 				fontStyle: "bold",
@@ -285,7 +287,7 @@ countdown_interval = setInterval(function(){
 
 		let final_score = 0;
 
-		let score_text = game.scene.scenes[0].add.text(canvas_w / 2, canvas_h / 2 + 40,
+		let score_text = escena.add.text(canvas_w / 2, canvas_h / 2 + 40,
 			"Puntuación: " + final_score, {
 				fontSize: "32px",
 				color: "#ffffff"
@@ -296,7 +298,6 @@ countdown_interval = setInterval(function(){
 			huevos[i].falling = false;
 			huevos[i].disableInteractive();
 		}
-
 		clearTimeout(huevos_interval);
 	}
 }, 1000);
