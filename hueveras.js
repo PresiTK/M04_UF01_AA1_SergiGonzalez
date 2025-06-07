@@ -278,6 +278,7 @@ countdown_interval = setInterval(function(){
 
 		clearInterval(countdown_interval);
 		clearTimeout(huevos_interval);
+		
 	}
 }, 1000);
 
@@ -292,13 +293,15 @@ function next_huevo ()
 		return;
 	}
 
-	huevos[huevo_current].falling = true;
+	if (!juego_terminado) {
+		huevos[huevo_current].falling = true;
 
-	huevos_interval_time -= 100;
-	if (huevos_interval_time < 400)
-		huevos_interval_time = 400;
+		huevos_interval_time -= 100;
+		if (huevos_interval_time < 400)
+			huevos_interval_time = 400;
 
-	huevos_interval = setTimeout(next_huevo, huevos_interval_time);
+		huevos_interval = setTimeout(next_huevo, huevos_interval_time);
+	}
 }
 
 
