@@ -269,8 +269,18 @@ countdown_interval = setInterval(function(){
 	countdown_text.text = countdown;
 
 	if (countdown <= 0){
-		console.log("Game Over");
-		music.background.stop();
+		gameOver = true;
+		gameOverText = this.add.text(
+			canvas_w / 2, 
+			canvas_h / 2, 
+			'GAME OVER...\nPuntuacion: ' + score, 
+			{ "fontSize": 48, "fontStyle": "bold", "align": "center" }
+		).setOrigin(0.5);
+
+		this.physics.pause();
+		this.input.off('drag');
+		this.input.off('dragend');
+			music.background.stop();
 		music.game_over.play();
 
 		clearInterval(countdown_interval);
