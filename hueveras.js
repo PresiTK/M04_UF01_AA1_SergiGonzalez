@@ -284,10 +284,11 @@ countdown_interval = setInterval(function(){
 
 function next_huevo ()
 {
+	if (juego_terminado) return;
+
 	huevo_current++;
 	if (huevo_current >= huevos.length){
 		console.log("Se acabaron los huevos");
-
 		return;
 	}
 
