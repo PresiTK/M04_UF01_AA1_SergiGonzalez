@@ -266,22 +266,8 @@ function actualiza ()
 
 countdown_interval = setInterval(function(){
 	countdown--;
-
 	countdown_text.text = countdown;
-	let gameOverText = game.scene.scenes[0].add.text(
-		canvas_w / 2,
-		canvas_h / 2 - 50,
-		'Game Over',
-		{ fontSize: '64px', color: '#ff0000', fontStyle: 'bold' }
-	).setOrigin(0.5);
 
-	let scoreText = game.scene.scenes[0].add.text(
-		canvas_w / 2,
-		canvas_h / 2 + 20,
-		'Puntuación: ' + countdown,
-		{ fontSize: '40px', color: '#ffffff' }
-	).setOrigin(0.5);
-	
 	if (countdown <= 0){
 		console.log("Game Over");
 		music.background.stop();
@@ -291,7 +277,20 @@ countdown_interval = setInterval(function(){
 
 		clearInterval(countdown_interval);
 		clearTimeout(huevos_interval);
-		
+
+		let gameOverText = game.scene.scenes[0].add.text(
+			canvas_w / 2,
+			canvas_h / 2 - 50,
+			'Game Over',
+			{ fontSize: '64px', color: '#ff0000', fontStyle: 'bold' }
+		).setOrigin(0.5);
+
+		let scoreText = game.scene.scenes[0].add.text(
+			canvas_w / 2,
+			canvas_h / 2 + 20,
+			'Puntuación: ' + countdown,
+			{ fontSize: '40px', color: '#ffffff' }
+		).setOrigin(0.5);
 	}
 }, 1000);
 
