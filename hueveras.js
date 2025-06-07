@@ -13,8 +13,8 @@ let config = {
 
 let game = new Phaser.Game(config);
 
-//let rect;
-//let rect_dir = 1;
+let juego_terminado = false;
+
 
 let field_center = canvas_w/2 + canvas_w/8;
 
@@ -249,13 +249,14 @@ function actualiza ()
 	}
 
 
-	for (let i = 0; i < huevos.length; i++){
-		if (huevos[i].falling){
-			huevos[i].y += huevos_speed;
+	if (!juego_terminado) {
+		for (let i = 0; i < huevos.length; i++){
+			if (huevos[i].falling){
+				huevos[i].y += huevos_speed;
 
-			if (huevos[i].y > canvas_h +64){
-				huevos[i].falling = false;
-
+				if (huevos[i].y > canvas_h +64){
+					huevos[i].falling = false;
+				}
 			}
 		}
 	}
@@ -272,19 +273,11 @@ countdown_interval = setInterval(function(){
 		console.log("Game Over");
 		music.background.stop();
 		music.game_over.play();
-		clearInterval(countdown_interval);
 
-		let gameOverText = scene.add.text(
-			canvas_w / 2,
-			canvas_h / 2,
-			'GAME OVER',
-			{
-				fontSize: '48px',
-				fontStyle: 'bold',
-				color: '#ff0000',
-				align: 'center'
-			}
-		).setOrigin(0.5);
+		juego_terminado = true;
+
+		clearInterval(countdown_interval);
+		clearTimeout(huevos_interval);
 	}
 }, 1000);
 
