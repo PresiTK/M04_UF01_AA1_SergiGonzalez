@@ -269,21 +269,22 @@ countdown_interval = setInterval(function(){
 	countdown_text.text = countdown;
 
 	if (countdown <= 0){
-		gameOver = true;
-		gameOverText = this.add.text(
-			canvas_w / 2, 
-			canvas_h / 2, 
-			'GAME OVER...\nPuntuacion: ' + score, 
-			{ "fontSize": 48, "fontStyle": "bold", "align": "center" }
-		).setOrigin(0.5);
-
-		this.physics.pause();
-		this.input.off('drag');
-		this.input.off('dragend');
-			music.background.stop();
+		console.log("Game Over");
+		music.background.stop();
 		music.game_over.play();
-
 		clearInterval(countdown_interval);
+
+		let gameOverText = scene.add.text(
+			canvas_w / 2,
+			canvas_h / 2,
+			'GAME OVER',
+			{
+				fontSize: '48px',
+				fontStyle: 'bold',
+				color: '#ff0000',
+				align: 'center'
+			}
+		).setOrigin(0.5);
 	}
 }, 1000);
 
