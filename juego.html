@@ -18,8 +18,66 @@
     </header>
 
     <main>
-        
+        <section>
+            <article>
+                <h1>GAME</h1>
+                <form>
+                    <h2>~ Guess the number ~</h2>
+                    <strong><p id="info">Enter a number between 1 and 100 to guess the number.</p></strong>
+                    <p>Number: <input type="number" id="game_num" name="num" /></p>
+                    <p><output id="result">Enter the number in the text field.</output></p>
+                    <p><strong id="intentos">Attempts: 0</strong></p>
+                    <p><input type="button" id="guessButton" value="Guess!" onClick="check_num();" /></p>
+                </form>
+            </article>
+        </section>
     </main>
+    <script>
+        let num_min = 1;
+        let num_max = 100;
+        let num_random = Math.floor(Math.random() * (num_max - num_min + 1)) + num_min;
+        console.log("El número a adivinar es: " + num_random);
+
+        let intentos = 0;
+        let info = "Enter a number between " + num_min + " and " + num_max + " to guess the number.";
+
+        function check_num() {
+            let valor = parseInt(document.getElementById("game_num").value);
+            let result = document.getElementById("result");
+            let intentosDisplay = document.getElementById("intentos");
+            let boton = document.getElementById("guessButton");
+
+            if (isNaN(valor)) {
+                result.innerText = "Please enter a valid number.";
+                return;
+            }
+
+            if (valor < num_min) {
+                result.innerText = "The number must be 1 or larger.";
+                return;
+            } else if (valor > num_max) {
+                result.innerText = "The number must be 100 or less.";
+                return;
+            }
+
+            intentos++;
+            intentosDisplay.innerText = `Attempts: ${intentos}`;
+
+            let text = "";
+            if (valor > num_random) {
+                text = "The number to be guessed is less than " + valor + ".";
+            } else if (valor < num_random) {
+                text = "The number to be guessed is larger than " + valor + ".";
+            } else {
+                text = "🎉 You got it right! 🎉";
+                boton.disabled = true;
+                result.style.color = "green";
+            }
+
+            console.log(text);
+            result.innerText = text;
+        }
+    </script>
 </body>
 <footer>
     <a href="contacto.html"><p>Contacto</p></a>
