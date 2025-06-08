@@ -1,29 +1,17 @@
 <!DOCTYPE html>
+<html lang="es">
 <head>
+    <meta charset="UTF-8">
     <title>Mi Página Web</title>
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul id="menu">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="sobre-mi.html">Sobre Mí</a></li>
-                <li><a href="aficiones.html">Aficiones</a></li>
-                <li><a href="juego.html">Juego</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-				<li><a href="hueveras.html">Hueveras</a></li>
-            </ul>
-        </nav>
-    </header>
-
     <main>
         <section>
             <article>
                 <h1>GAME</h1>
                 <form>
                     <h2>~ Guess the number ~</h2>
-                    <strong><p id="info">Enter a number between 1 and 100 to guess the number.</p></strong>
+                    <p id="info"><strong>Enter a number between 1 and 100 to guess the number.</strong></p>
                     <p>Number: <input type="number" id="game_num" name="num" /></p>
                     <p><output id="result">Enter the number in the text field.</output></p>
                     <p><strong id="intentos">Attempts: 0</strong></p>
@@ -32,6 +20,11 @@
             </article>
         </section>
     </main>
+
+    <footer>
+        <a href="contacto.html"><p>Contacto</p></a>
+    </footer>
+
     <script>
         let num_min = 1;
         let num_max = 100;
@@ -39,7 +32,6 @@
         console.log("El número a adivinar es: " + num_random);
 
         let intentos = 0;
-        let info = "Enter a number between " + num_min + " and " + num_max + " to guess the number.";
 
         function check_num() {
             let valor = parseInt(document.getElementById("game_num").value);
@@ -74,12 +66,8 @@
                 result.style.color = "green";
             }
 
-            console.log(text);
             result.innerText = text;
         }
     </script>
 </body>
-<footer>
-    <a href="contacto.html"><p>Contacto</p></a>
-</footer>
-
+</html>
