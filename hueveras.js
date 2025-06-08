@@ -31,6 +31,7 @@ let huevo_b, huevo_m, huevo_d;
 let huevo_shadow;
 
 let sprite_scale = .6;
+let puntuacion =0;
 
 let countdown = 20;
 let countdown_text;
@@ -180,16 +181,18 @@ function crea ()
 		object.setScale(1);
 		huevo_shadow.x = -10000;
 		huevo_shadow.y = -10000;
+		let huevo_seted = false;
 
 		if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_b.getBounds(), object.getBounds())){
 			if (object.huevo_type == "b"){
 				countdown += 5;
-				
+				huevo_seted=true;
 				console.log("Huevo dentro de huevera!!!");
+				puntuacion +=1;
 			}
 			else{
 				countdown -= 5;
-				
+				huevo_seted=true;
 				console.log("Huevo dentro de huevera equivocada!!!");
 			}
 			countdown_text.text = countdown;
@@ -197,12 +200,13 @@ function crea ()
 		else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_m.getBounds(), object.getBounds())){
 			if (object.huevo_type == "m"){
 				countdown += 5;
-				
+				huevo_seted=true;
 				console.log("Huevo dentro de huevera!!!");
+				puntuacion+=5;
 			}
 			else{
 				countdown -= 5;
-				
+				huevo_seted=true;
 				console.log("Huevo dentro de huevera equivocada!!!");
 			}
 			countdown_text.text = countdown;
@@ -210,15 +214,19 @@ function crea ()
 		else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_d.getBounds(), object.getBounds())){
 			if (object.huevo_type == "d"){
 				countdown += 5;
-				
+				huevo_seted=true;
 				console.log("Huevo dentro de huevera!!!");
+				puntuacion +=10;
 			}
 			else{
 				countdown -= 5;
-				
+				huevo_seted=true;
 				console.log("Huevo dentro de huevera equivocada!!!");
 			}
 			countdown_text.text = countdown;
+		}
+		if(huevo_seted){
+			object.destroy();
 		}
 	});
 
@@ -282,13 +290,13 @@ countdown_interval = setInterval(function(){
 			canvas_w / 2,
 			canvas_h / 2 - 50,
 			'Game Over',
-			{ fontSize: '64px', color: '#ff0000', fontStyle: 'bold' }
+			{ fontSize: '64px', color: '#ff0000'}
 		).setOrigin(0.5);
 
 		let scoreText = game.scene.scenes[0].add.text(
 			canvas_w / 2,
 			canvas_h / 2 + 20,
-			'Puntuación: ' + countdown,
+			'Puntuación: ' + puntuacion,
 			{ fontSize: '40px', color: '#ffffff' }
 		).setOrigin(0.5);
 	}
