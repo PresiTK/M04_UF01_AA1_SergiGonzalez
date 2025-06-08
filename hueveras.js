@@ -82,10 +82,7 @@ function crea ()
 	let blanco = Phaser.Display.Color.GetColor(255, 255, 255);
 	let marron = Phaser.Display.Color.GetColor(192, 128, 16);
 	let dorado = Phaser.Display.Color.GetColor(255, 215, 0);
-	this.scoreText = this.add.text(canvas_w - 20, 20, '' + puntuacion, {
-		fontSize: '40px',
-		color: '#ffffff'
-	}).setOrigin(1, 0); 
+
 	canvas_bg = this.add.image(canvas_w/2, canvas_h/2, 'grass_bg');
 
 	eggcups_bg = this.add.image(huevera_x, canvas_h/2, 'straw_bg');
@@ -229,8 +226,7 @@ function crea ()
 			countdown_text.text = countdown;
 		}
 		if(huevo_seted){
-			this.scoreText.setText('' + puntuacion);
-			object.destroy();
+		this.input.setDraggable(object, false);
 		}
 	});
 
@@ -259,8 +255,6 @@ function actualiza ()
 	if (countdown == 10){
 		music.background.rate = 1.25;
 	}
-	
-
 
 	if (!juego_terminado) {
 		for (let i = 0; i < huevos.length; i++){
