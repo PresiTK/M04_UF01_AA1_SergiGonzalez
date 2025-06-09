@@ -1,12 +1,9 @@
 let min = 1;
 let max  =100;
-
 let att = 0;
-
 let rand = Math.floor(Math.random() * (max - min + 1)) + min;
 let text = "";
-
-function check_num() {
+function verifynum() {
     let valor = parseInt(document.getElementById("numjuego").value);
     let result= document.getElementById("resultado");
     let intentosDisplay = document.getElementById("intentos");
@@ -25,7 +22,6 @@ function check_num() {
     att++;
     intentosDisplay.innerText = `Intentos: ${att}`;
     
-
     if (valor > rand) {
         text = "Menor que: " + valor + ".";
     } else if (valor < rand) {
@@ -39,6 +35,5 @@ function check_num() {
             boton.disabled = true;  
         }
     }
-
     result.innerText = text;
 }
