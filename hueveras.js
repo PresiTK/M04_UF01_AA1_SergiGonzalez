@@ -4,7 +4,7 @@ let canvas_h = 450;
 let config = {
 	type: Phaser.AUTO,
     width: 800,
-    height: 600,
+    height: 400,
     parent: 'game-container',
 	scene: {
 		preload: precarga,
