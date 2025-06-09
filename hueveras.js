@@ -4,7 +4,7 @@ let canvas_h = 450;
 let config = {
 	type: Phaser.AUTO,
     width: 800,
-    height: 400,
+    height: 450,
     parent: 'game-container',
 	scene: {
 		preload: precarga,
@@ -285,7 +285,6 @@ countdown_interval = setInterval(function(){
 		console.log("Game Over");
 		music.background.stop();
 		music.game_over.play();
-		huevo.disableInteractive();
 
 		juego_terminado = true;
 
