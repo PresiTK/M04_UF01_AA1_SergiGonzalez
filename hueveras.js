@@ -285,6 +285,7 @@ countdown_interval = setInterval(function(){
 		console.log("Game Over");
 		music.background.stop();
 		music.game_over.play();
+		huevo.disableInteractive();
 
 		juego_terminado = true;
 
