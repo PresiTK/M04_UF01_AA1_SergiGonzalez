@@ -172,6 +172,7 @@ function crea ()
 	}
 
 	this.input.on('drag', function (pointer, object, x, y) {
+		if (juego_terminado) return;
 		object.x = x;
 		object.y = y;
 		huevo_shadow.x = x + 8;
