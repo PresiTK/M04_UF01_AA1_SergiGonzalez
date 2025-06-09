@@ -180,55 +180,57 @@ function crea ()
 	});
 
 	this.input.on('dragend', function (pointer, object, x, y) {
-		object.setScale(1);
-		huevo_shadow.x = -10000;
-		huevo_shadow.y = -10000;
-		let huevo_seted = false;
+		if(!juego_terminado){
+			object.setScale(1);
+			huevo_shadow.x = -10000;
+			huevo_shadow.y = -10000;
+			let huevo_seted = false;
 
-		if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_b.getBounds(), object.getBounds())){
-			if (object.huevo_type == "b"){
-				countdown += 5;
-				huevo_seted=true;
-				console.log("Huevo dentro de huevera!!!");
-				puntuacion +=1;
+			if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_b.getBounds(), object.getBounds())){
+				if (object.huevo_type == "b"){
+					countdown += 5;
+					huevo_seted=true;
+					console.log("Huevo dentro de huevera!!!");
+					puntuacion +=1;
+				}
+				else{
+					countdown -= 5;
+					huevo_seted=true;
+					console.log("Huevo dentro de huevera equivocada!!!");
+				}
+				countdown_text.text = countdown;
 			}
-			else{
-				countdown -= 5;
-				huevo_seted=true;
-				console.log("Huevo dentro de huevera equivocada!!!");
+			else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_m.getBounds(), object.getBounds())){
+				if (object.huevo_type == "m"){
+					countdown += 5;
+					huevo_seted=true;
+					console.log("Huevo dentro de huevera!!!");
+					puntuacion+=5;
+				}
+				else{
+					countdown -= 5;
+					huevo_seted=true;
+					console.log("Huevo dentro de huevera equivocada!!!");
+				}
+				countdown_text.text = countdown;
 			}
-			countdown_text.text = countdown;
-		}
-		else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_m.getBounds(), object.getBounds())){
-			if (object.huevo_type == "m"){
-				countdown += 5;
-				huevo_seted=true;
-				console.log("Huevo dentro de huevera!!!");
-				puntuacion+=5;
+			else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_d.getBounds(), object.getBounds())){
+				if (object.huevo_type == "d"){
+					countdown += 5;
+					huevo_seted=true;
+					console.log("Huevo dentro de huevera!!!");
+					puntuacion +=10;
+				}
+				else{
+					countdown -= 5;
+					huevo_seted=true;
+					console.log("Huevo dentro de huevera equivocada!!!");
+				}
+				countdown_text.text = countdown;
 			}
-			else{
-				countdown -= 5;
-				huevo_seted=true;
-				console.log("Huevo dentro de huevera equivocada!!!");
+			if(huevo_seted){
+				object.destroy();
 			}
-			countdown_text.text = countdown;
-		}
-		else if (Phaser.Geom.Intersects.RectangleToRectangle(huevera_d.getBounds(), object.getBounds())){
-			if (object.huevo_type == "d"){
-				countdown += 5;
-				huevo_seted=true;
-				console.log("Huevo dentro de huevera!!!");
-				puntuacion +=10;
-			}
-			else{
-				countdown -= 5;
-				huevo_seted=true;
-				console.log("Huevo dentro de huevera equivocada!!!");
-			}
-			countdown_text.text = countdown;
-		}
-		if(huevo_seted){
-			object.destroy();
 		}
 	});
 
