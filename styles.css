@@ -103,4 +103,6 @@ button:disabled {
     align-items: center;
     width: 800px;
     height: 600px;
+    margin: 0 auto;
+    background-color: #f4f4f4;
 }
