@@ -21,20 +21,16 @@
         <section id="contacto">
             <h1>Contacto</h1>
             <form id="contactForm" onSubmit="form_send(event)">
-                <section id="name">
+                <section id="form_box">
                     <p><label for="nombre"></label>Nombre:</p>
                     <input type="text" id="nombre" >
-                </section>
-
-                <section id ="mail">
-                    <p><label for="email"></label> Electrónico:</p>
+                    <p><label for="email"></label> Correo electrónico (email):</p>
                     <input type="text" id="email" >
-                </section>
-                <section id="msg">
                     <p><label for="mensaje"></label>Mensaje:</p>
                     <textarea id="mensaje" ></textarea>
+
+                    <p><input type="submit" value="submit"/></p>
                 </section>
-                <p><input type="submit" value="submit"/></p>
             </form>
         </section>
         <section id="cv">
