@@ -22,14 +22,23 @@
             <h1>Contacto</h1>
             <form id="contactForm" onSubmit="form_send(event)">
                 <section id="form_box">
-                    <p><label for="nombre"></label>Nombre:</p>
-                    <input type="text" id="nombre" >
-                    <p><label for="email"></label> Correo electrónico (email):</p>
-                    <input type="text" id="email" >
-                    <p><label for="mensaje"></label>Mensaje:</p>
-                    <textarea id="mensaje" ></textarea>
-
-                    <p><input type="submit" value="submit"/></p>
+                    <ul>
+                        <li>
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre">
+                        </li>
+                        <li>
+                            <label for="email">Correo electrónico (email):</label>
+                            <input type="email" id="email" name="email">
+                        </li>
+                        <li>
+                            <label for="mensaje">Mensaje:</label>
+                            <textarea id="mensaje" name="mensaje"></textarea>
+                        </li>
+                        <li>
+                            <input type="submit" value="Enviar">
+                        </li>
+                    </ul>
                 </section>
             </form>
         </section>
