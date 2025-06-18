@@ -2,6 +2,7 @@
 <head>
     <title>Mi Página Web</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="contacto.js" defer></script>
 </head>
 <body>
     <header>
@@ -19,17 +20,21 @@
     <main>
         <section id="contacto">
             <h1>Contacto</h1>
-            <form id="contactForm">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" required>
-                <br>
-                <label for="email">Correo Electrónico:</label>
-                <input type="text" id="email" required>
-                <br>
-                <label for="mensaje">Mensaje:</label>
-                <textarea id="mensaje" required></textarea>
-                <br>
-                <button type="submit">Enviar</button>
+            <form id="contactForm" onSubmit="form_send(event)">
+                <section id="name">
+                    <p><label for="nombre"></label>Nombre:</p>
+                    <input type="text" id="nombre" >
+                </section>
+
+                <section id ="mail">
+                    <p><label for="email"></label> Electrónico:</p>
+                    <input type="text" id="email" >
+                </section>
+                <section id="msg">
+                    <p><label for="mensaje"></label>Mensaje:</p>
+                    <textarea id="mensaje" ></textarea>
+                </section>
+                <p><input type="submit" value="submit"/></p>
             </form>
         </section>
         <section id="cv">
@@ -37,24 +42,24 @@
             <h2>Sergi González</h2>
             <p><strong>Estudiante</strong></p>
             
-            <div class="section">
+            <section id="informacion">
                 <h2>Contacto</h2>
                 <p><strong>Teléfono:</strong> +34-666666666</p>
                 <p><strong>Email:</strong> sergi.gonzalez.cabrera@enti.cat</p>
                 <p><strong>Dirección:</strong> Carrer presidente 01, Barcelona</p>
                 <p><strong>Fecha de Nacimiento:</strong> 08/10/2004</p>
-            </div>
+            </section>
             
-            <div class="section">
+            <section id="academicos">
                 <h2>Datos Académicos</h2>
                 <ul>
                     <li><strong>Bachillerato Científico-Tecnológico:</strong> Intitut Infanta Isabel d'Aragò (2020-2022)</li>
                     <li><strong>Ciclo Superior DAM-VIOD:</strong> ENTI (Escola Noves Tecnologies Interactives) (En curso desde 2024)</li>
                     <li><strong>ESO:</strong> Escola Mare de Déu dels Àngels (2016-2020)</li>
                 </ul>
-            </div>
+            </section>
             
-            <div class="section">
+            <section id="habilidades">
                 <h2>Habilidades</h2>
                 <ul>
                     <li>Diseño de logotipos</li>
@@ -64,9 +69,9 @@
                     <li>Trabajo multiplataforma (Linux, iOS, Windows)</li>
                     <li>Conocimientos de Blender y Unity</li>
                 </ul>
-            </div>
+            </section>
             
-            <div class="section">
+            <section id =idiomas>
                 <h2>Idiomas</h2>
                 <ul>
                     <li>Castellano y Catalán: Nivel Nativo</li>
@@ -75,23 +80,22 @@
                     <li>Alemán: Conocimientos Básicos</li>
                     <li>Japonés: Conocimientos Básicos</li>
                 </ul>
-            </div>
+            </section>
             
-            <div class="section">
+            <section id="titulos">
                 <h2>Titulaciones Generales</h2>
                 <ul>
                     <li>Permiso de Circulación B</li>
                     <li>Permiso de Circulación A2</li>
                 </ul>
-            </div>
+            </section>
             
-            <div class="section">
+            <section id ="experiencia">
                 <h2>Experiencia Laboral</h2>
                 <p><strong>CET 10 Patis Oberts</strong> (2023 - En curso)</p>
-            </div>
+            </section>
         </section>
     </main>
-    <script src="contacto.js" defer></script>
 
 </body>
 <footer>
