@@ -12,6 +12,9 @@ header {
     padding: 10px 0;
     text-align: center;
 }
+header h1{
+display:none;
+}
 
 h1 {
     font-size: 32px;
@@ -39,7 +42,7 @@ nav ul li a {
 }
 
 main {
-    padding: 20px;
+    margin-bottom:64px;
     text-align: center;
 }
 
@@ -105,4 +108,17 @@ button:disabled {
     height: 450px;
     margin: 0 auto;
     background-color: #f4f4f4;
+}
+#lista-aficiones section h3{
+display:inline;
+font-size:16px;
+}
+#lista-aficiones section h3::after{
+content: " - ";
+}
+#lista-aficiones section p{
+display:inline;
+}
+#lista-aficiones img{
+width:150px;
 }
