@@ -1,136 +1,477 @@
-body {
-    font-family: "Times New Roman", serif;
+/* ===== Variables CSS ===== */
+:root {
+    --primary-color: #6366f1;
+    --secondary-color: #8b5cf6;
+    --accent-color: #ec4899;
+    --dark-bg: #1e1b4b;
+    --light-bg: #f8fafc;
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+    --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2);
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+}
+
+/* ===== Reset y Base ===== */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333333;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background-attachment: fixed;
+    color: var(--text-dark);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== Header ===== */
 header {
-    background: #444467;
-    color: #ffffff;
-    padding: 10px 0;
-    text-align: center;
-}
-header h1{
-display:none;
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #312e81 100%);
+    color: var(--white);
+    padding: 1.5rem 1rem;
+    box-shadow: var(--shadow-lg);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
 }
 
+header h1 {
+    display: none;
+}
+
+/* ===== Navegación ===== */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0;
+}
+
+nav ul li a {
+    color: var(--white);
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition);
+}
+
+nav ul li a:hover::before {
+    left: 100%;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+nav ul li a:active {
+    transform: translateY(0);
+}
+
+/* ===== Tipografía ===== */
 h1 {
-    font-size: 32px;
-    color: #000000;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    color: var(--text-dark);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 h2 {
-    font-size: 24px;
-    color: #616161;
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--text-dark);
+    font-weight: 700;
+    margin: 1.5rem 0 1rem;
 }
 
+h3 {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--primary-color);
+    font-weight: 600;
+    margin: 1rem 0 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    font-size: clamp(0.9rem, 2vw, 1rem);
+}
+
+/* ===== Main Container ===== */
+main {
+    margin-bottom: 80px;
+    padding: 2rem 1rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ===== Secciones ===== */
+section {
+    background: var(--white);
+    margin: 2rem auto;
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-xl);
+    max-width: 800px;
+    animation: fadeIn 0.6s ease-in-out;
+    transition: var(--transition);
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== Imágenes Responsive ===== */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+    display: block;
+    margin: 1rem auto;
+}
+
+img:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-xl);
+}
+
+#inicio img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+}
+
+#blender img,
+#games img {
+    max-width: 500px;
+    width: 100%;
+    height: auto;
+}
+
+#lista-aficiones img {
+    max-width: 150px;
+    width: 100%;
+}
+
+/* ===== Enlaces ===== */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    position: relative;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+a:not(nav a, footer a)::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: var(--transition);
+}
+
+a:not(nav a, footer a):hover::after {
+    width: 100%;
+}
+
+/* ===== Listas ===== */
 ul {
     list-style: none;
     padding: 0;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+section ul li {
+    padding: 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-light);
 }
 
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-main {
-    margin-bottom:64px;
-    text-align: center;
-}
-
-section {
-    background: #ffffff;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #0000001a;
-    max-width: 600px;
-}
-footer {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
-    font-family: Arial, sans-serif;
-}
-footer a {
-    color: #00bcd4;
-    text-decoration: none;
+section ul li::before {
+    content: '▹';
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
     font-weight: bold;
 }
-footer a:hover {
-    text-decoration: underline;
+
+section ul li strong {
+    color: var(--text-dark);
 }
 
-button {
-    background-color: #28a745;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
+/* ===== Aficiones especiales ===== */
+#lista-aficiones section h3 {
+    display: inline;
     font-size: 16px;
+}
+
+#lista-aficiones section h3::after {
+    content: " - ";
+}
+
+#lista-aficiones section p {
+    display: inline;
+}
+
+/* ===== Botones ===== */
+button {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: var(--white);
+    border: none;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    box-shadow: var(--shadow-md);
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+button:active {
+    transform: translateY(0);
 }
 
 button:disabled {
-    background-color: #cccccc;
+    background: #cbd5e1;
     cursor: not-allowed;
+    transform: none;
 }
 
-@media (max-width: 600px) {
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
+/* ===== Footer ===== */
+footer {
+    background: linear-gradient(135deg, var(--dark-bg) 0%, #0f172a 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 999;
 }
+
+footer a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.1);
+    transition: var(--transition);
+    display: inline-block;
+}
+
+footer a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+footer p {
+    margin: 0;
+    color: var(--white);
+}
+
+/* ===== Game Container ===== */
 #game-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 800px;
-    height: 450px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    aspect-ratio: 16/9;
+    margin: 2rem auto;
     background-color: #f4f4f4;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
 }
-#lista-aficiones section h3{
-display:inline;
-font-size:16px;
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 0.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    nav ul li {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+    }
+
+    main {
+        padding: 1rem 0.5rem;
+        margin-bottom: 100px;
+    }
+
+    section {
+        padding: 1.5rem;
+        margin: 1rem 0.5rem;
+        border-radius: 8px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+    #inicio img,
+    #blender img,
+    #games img {
+        max-width: 100%;
+    }
+
+    #game-container {
+        width: 100%;
+        height: auto;
+        min-height: 250px;
+    }
+
+    footer {
+        padding: 1rem;
+    }
+
+    button {
+        width: 100%;
+        padding: 1rem;
+    }
 }
-#lista-aficiones section h3::after{
-content: " - ";
+
+@media (max-width: 480px) {
+    section {
+        padding: 1rem;
+        margin: 1rem 0.25rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    nav ul li a {
+        padding: 0.875rem;
+        font-size: 0.9rem;
+    }
+
+    section ul li {
+        font-size: 0.9rem;
+        padding: 0.5rem 0 0.5rem 1.25rem;
+    }
+
+    #lista-aficiones img {
+        max-width: 100px;
+    }
 }
-#lista-aficiones section p{
-display:inline;
+
+/* ===== Mejoras de accesibilidad ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
-#lista-aficiones img{
-width:150px;
+
+/* ===== Utilidades ===== */
+.text-center {
+    text-align: center;
 }
-#inicio img{
-    width:500px;
-    height: 500px;
-}
-#blender img{
-    width:500px;
-    height: 281px;
-}
-#games img{
-    width:500px;
-    height: 281px;
-}
+
+.mt-1 { margin-top: 0.5rem; }
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 1.5rem; }
+.mt-4 { margin-top: 2rem; }
+
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
